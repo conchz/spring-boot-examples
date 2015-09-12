@@ -52,7 +52,6 @@
                 <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
             </props>
         </property>
-        <!--<property name="configLocation" value="classpath:hibernate.cfg.xml"/>-->
     </bean>
 
     <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
