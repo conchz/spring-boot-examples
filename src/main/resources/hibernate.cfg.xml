@@ -39,7 +39,7 @@
 
 
         <!-- SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
         <property name="hibernate.max_fetch_depth">3</property>
 
