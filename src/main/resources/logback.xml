@@ -2,44 +2,26 @@
 <!-- Doc: http://logback.qos.ch/manual/configuration.html -->
 <!-- This config file will be automatically reloaded every minute -->
 <configuration scan="true" scanPeriod="60 seconds">
-    <!-- Set to INFO to avoid noisy log -->
-    <logger name="io.netty" level="INFO"/>
-    <logger name="org.fusesource.scalate" level="INFO"/>
-    <logger name="org.fusesource.scalate.util.ClassPathBuilder" level="ERROR"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n%ex{20}</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <encoder>UTF-8</encoder>
+        <file>./log/spring-examples.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n%ex{20}</pattern>
+        </encoder>
+    </appender>
 
-    <!-- Log to console in development mode -->
-    <if condition='!property("xitrum.mode").contains("production")'>
-        <then>
-            <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-                <encoder>
-                    <pattern>[%level] %m%n</pattern>
-                </encoder>
-            </appender>
-
-            <!-- Set to TRACE to see network transmission -->
-            <root level="DEBUG">
-                <appender-ref ref="CONSOLE"/>
-            </root>
-        </then>
-    </if>
-
-    <!-- Log to file in production mode -->
-    <if condition='property("xitrum.mode").contains("production")'>
-        <then>
-            <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-                <file>./log/xitrum.log</file>
-                <encoder>
-                    <pattern>[%level] [%d{yy-MM-dd HH:mm:ss}] %c{1}: %m%n</pattern>
-                </encoder>
-                <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                    <fileNamePattern>./log/spring-examples.log.%d{yy-MM}</fileNamePattern>
-                </rollingPolicy>
-            </appender>
-
-            <!-- Set to TRACE to see network transmission -->
-            <root level="INFO">
-                <appender-ref ref="FILE"/>
-            </root>
-        </then>
-    </if>
+    <!--<logger name="className" level="info"/>-->
+    <!-- 日志级别 -->
+    <root>
+        <!-- 定义INFO级别的日志, 分别在FILE文件和控制台输出 -->
+        <level value="info"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
 </configuration>

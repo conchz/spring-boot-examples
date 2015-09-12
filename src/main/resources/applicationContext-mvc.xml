@@ -11,25 +11,14 @@
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
             <!-- 解决Spring3.1以上版本返回JSON时中文显示乱码问题 -->
-            <bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <constructor-arg value="UTF-8"/>
             </bean>
-            <bean id="mappingJackson2HttpMessageConverter"
-                  class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
                 <property name="objectMapper">
                     <bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
                         <property name="failOnEmptyBeans" value="false"/>
                     </bean>
-                </property>
-            </bean>
-            <bean id="formHttpMessageConverter" class="org.springframework.http.converter.FormHttpMessageConverter"/>
-            <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-                <property name="messageConverters">
-                    <list>
-                        <ref bean="mappingJackson2HttpMessageConverter"/>
-                        <ref bean="stringHttpMessageConverter"/>
-                        <ref bean="formHttpMessageConverter"/>
-                    </list>
                 </property>
             </bean>
         </mvc:message-converters>
