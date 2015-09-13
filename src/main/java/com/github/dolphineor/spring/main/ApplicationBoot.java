@@ -3,11 +3,9 @@ package com.github.dolphineor.spring.main;
 import com.github.dolphineor.spring.config.JavaScriptEngine;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 /**
@@ -16,8 +14,6 @@ import org.springframework.context.annotation.ImportResource;
  * @author dolphineor
  */
 @SpringBootApplication
-@Configuration
-@EnableAutoConfiguration
 @ImportResource("META-INF/application-context.xml")
 public class ApplicationBoot implements CommandLineRunner {
 
