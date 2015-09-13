@@ -1,6 +1,6 @@
-package com.github.dolphineor.spring.dao.impl;
+package com.github.dolphineor.spring.model.dao.impl;
 
-import com.github.dolphineor.spring.dao.UserDAO;
+import com.github.dolphineor.spring.model.dao.UserDAO;
 import org.springframework.stereotype.Repository;
 
 /**

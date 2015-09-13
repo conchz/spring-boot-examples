@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
@@ -17,10 +16,9 @@ import org.springframework.context.annotation.ImportResource;
  * @author dolphineor
  */
 @SpringBootApplication
-@ComponentScan("com.github.dolphineor.spring.*")
 @Configuration
 @EnableAutoConfiguration
-@ImportResource("application-context.xml")
+@ImportResource("META-INF/application-context.xml")
 public class ApplicationBoot implements CommandLineRunner {
 
     public static void main(String[] args) {
@@ -28,12 +26,14 @@ public class ApplicationBoot implements CommandLineRunner {
     }
 
 
-//    @Bean
+    @Bean
     public JavaScriptEngine nashornEngine() {
         return new JavaScriptEngine()
                 .loadFromClassPath("META-INF/resources/webjars/react/0.13.3/react.min.js")
-                .loadFromClassPath("META-INF/resources/webjars/react-router/0.13.2/react-router.min.js")
-                .loadFromClassPath("META-INF/resources/webjars/react-bootstrap/0.25.1/react-bootstrap.min.js");
+                .loadFromClassPath("META-INF/resources/webjars/react-router/0.13.2/ReactRouter.min.js")
+                .loadFromClassPath("META-INF/resources/webjars/react-bootstrap/0.25.1/react-bootstrap.min.js")
+                .loadFromClassPath("META-INF/resources/webjars/showdown/0.3.1/compressed/showdown.js")
+                .loadFromClassPath("static/tutorial.js");
     }
 
     @Override

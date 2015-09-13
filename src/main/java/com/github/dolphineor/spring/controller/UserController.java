@@ -19,6 +19,4 @@ public class UserController {
     private SessionFactory sessionFactory;
 
 
-    @RequestMapping(value = "/hello")
-    public void hello(){}
 }
