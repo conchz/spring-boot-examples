@@ -56,10 +56,10 @@
             </exclusions>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -141,6 +141,12 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>handlebars</artifactId>
+            <version>4.0.2</version>
         </dependency>
 
         <dependency>
@@ -274,9 +280,16 @@
                 <includes>
                     <include>**/*.properties</include>
                     <include>**/*.xml</include>
-                    <include>**/*.js</include>
                 </includes>
             </resource>
         </resources>
     </build>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release/</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>

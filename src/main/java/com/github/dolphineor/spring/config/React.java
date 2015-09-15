@@ -21,7 +21,7 @@ public class React {
                         (NashornScriptEngine) new ScriptEngineManager().getEngineByName("nashorn");
 
                 try {
-                    nashornScriptEngine.eval(read("static/nashorn-polyfill.js"));
+                    nashornScriptEngine.eval(read("static/polyfill.js"));
                     nashornScriptEngine.eval(read("static/lib/react.min.js"));
                     nashornScriptEngine.eval(read("static/tutorial.js"));
                 } catch (ScriptException e) {

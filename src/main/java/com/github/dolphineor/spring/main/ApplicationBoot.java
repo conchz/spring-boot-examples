@@ -13,8 +13,8 @@ import org.springframework.context.annotation.ImportResource;
  *
  * @author dolphineor
  */
-@SpringBootApplication
-@ImportResource("META-INF/application-context.xml")
+//@SpringBootApplication
+//@ImportResource("META-INF/application-context.xml")
 public class ApplicationBoot implements CommandLineRunner {
 
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class ApplicationBoot implements CommandLineRunner {
     }
 
 
-    @Bean
+//    @Bean
     public JavaScriptEngine nashornEngine() {
         return new JavaScriptEngine()
                 .loadFromClassPath("META-INF/resources/webjars/react/0.13.3/react.min.js")
@@ -32,7 +32,7 @@ public class ApplicationBoot implements CommandLineRunner {
                 .loadFromClassPath("static/tutorial.js");
     }
 
-    @Override
+//    @Override
     public void run(String... strings) throws Exception {
         System.out.println("");
     }
