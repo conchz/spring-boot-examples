@@ -5,16 +5,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.script.ScriptTemplateConfigurer;
 import org.springframework.web.servlet.view.script.ScriptTemplateViewResolver;
 
 /**
- * Created on 2015-09-15.
+ * Created on 2015-09-12.
  *
  * @author dolphineor
  */
 @SpringBootApplication
 @ImportResource("META-INF/application-context.xml")
+@EnableWebMvc
 public class ApplicationBoot {
 
     public static void main(String[] args) {
@@ -28,7 +30,7 @@ public class ApplicationBoot {
         configurer.setEngineName("nashorn");
 
         configurer.setScripts("/static/polyfill.js", "/static/render.js",
-                "/META-INF/resources/webjars/handlebars/4.0.2/handlebars.js",
+                "/META-INF/resources/webjars/handlebars/4.0.2/handlebars.min.js",
                 "/META-INF/resources/webjars/react/0.13.3/react.min.js",
                 "/META-INF/resources/webjars/react-router/0.13.2/ReactRouter.min.js",
                 "/META-INF/resources/webjars/react-bootstrap/0.25.1/react-bootstrap.min.js",
@@ -44,7 +46,7 @@ public class ApplicationBoot {
     public ViewResolver viewResolver() {
         ScriptTemplateViewResolver viewResolver = new ScriptTemplateViewResolver();
 
-        viewResolver.setPrefix("static/templates/");
+        viewResolver.setPrefix("/static/templates/");
         viewResolver.setSuffix(".html");
 
         return viewResolver;

@@ -1,25 +1,25 @@
 package com.github.dolphineor.spring.model.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * Created on 2015-09-15.
  *
  * @author dolphineor
  */
-public class CommentEntity {
-
-    private String id;
+@Entity
+@Table(name = "TBL_COMMENT")
+public class CommentEntity extends AbstractId {
 
     private String author;
 
     private String content;
 
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public CommentEntity(String author, String content) {
+        this.author = author;
+        this.content = content;
     }
 
     public String getAuthor() {

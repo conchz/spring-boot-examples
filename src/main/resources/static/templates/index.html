@@ -1,26 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Hello React</title>
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<div id="content" th:utext="${markup}"></div>
+<ul>
+    {{#each comments}}
+    <li>{{author}} {{content}}</li>
+    {{/each}}
+</ul>
 
-<script src="http://fb.me/react-0.12.2.js"
-        th:src="@{/webjars/react/0.13.3/react.min.js}"></script>
-<script src="http://code.jquery.com/jquery-1.10.0.min.js"
-        th:src="@{/webjars/jquery/1.11.2/jquery.min.js}"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"
-        th:src="@{/webjars/showdown/0.3.1/compressed/showdown.js}"></script>
-<script src="../static/tutorial.js"
-        th:src="tutorial.js"></script>
-<script type="text/javascript"
-        th:inline="javascript">
-    $(function () {
-        var initialData = JSON.parse(/*[[${initialData}]]*/ '[]');
-        renderOnClient(initialData);
-    });
-</script>
+<script src="lib/js/jquery.min.js"></script>
+<script src="lib/js/bootstrap.min.js"></script>
+<script src="webjars/handlebars/4.0.2/handlebars.min.js"></script>
+<script src="webjars/react/0.13.3/react.min.js"></script>
+<script src="webjars/react-bootstrap/0.25.1/react-bootstrap.min.js"></script>
+<script src="webjars/showdown/0.3.1/compressed/showdown.js"></script>
 </body>
 </html>

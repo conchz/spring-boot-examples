@@ -1,7 +1,7 @@
 package com.github.dolphineor.spring.model.dao.impl;
 
-import com.github.dolphineor.spring.model.dao.UserDAO;
-import com.github.dolphineor.spring.model.entity.UserEntity;
+import com.github.dolphineor.spring.model.dao.CommentDAO;
+import com.github.dolphineor.spring.model.entity.CommentEntity;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -10,44 +10,44 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * Created on 2015-09-12.
+ * Created on 2015-09-15.
  *
  * @author dolphineor
  */
 @Repository
-public class UserDAOImpl implements UserDAO {
+public class CommentDAOImpl implements CommentDAO {
 
     @Resource
     private SessionFactory sessionFactory;
 
 
     @Override
-    public Collection<UserEntity> findAll() {
+    public Collection<CommentEntity> findAll() {
         return null;
     }
 
     @Override
-    public Collection<UserEntity> findByParams(Map<String, Object> params) {
+    public Collection<CommentEntity> findByParams(Map<String, Object> params) {
         return null;
     }
 
     @Override
-    public UserEntity findOne(String s) {
+    public CommentEntity findOne(String s) {
         return null;
     }
 
     @Override
-    public void insert(UserEntity userEntity) {
+    public void insert(CommentEntity commentEntity) {
 
     }
 
     @Override
-    public void insert(Collection<UserEntity> userEntities) {
+    public void insert(Collection<CommentEntity> commentEntities) {
 
     }
 
     @Override
-    public void update(UserEntity userEntity) {
+    public void update(CommentEntity commentEntity) {
 
     }
 
