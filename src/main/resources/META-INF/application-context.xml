@@ -84,4 +84,14 @@
             </list>
         </property>
     </bean>
+
+    <!-- ViewResolver mustache.java -->
+    <bean id="viewResolver" class="com.github.dolphineor.spring.extension.view.mustachejava.MustacheViewResolver">
+        <property name="prefix" value="/static/templates/"/>
+        <property name="suffix" value=".html"/>
+        <property name="cache" value="false"/>
+        <property name="templateFactory">
+            <bean class="com.github.dolphineor.spring.extension.view.mustachejava.MustacheJTemplateFactory"/>
+        </property>
+    </bean>
 </beans>
