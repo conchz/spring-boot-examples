@@ -15,6 +15,7 @@
  */
 package com.github.dolphineor.spring.extension.view.mustachejava;
 
+import com.github.dolphineor.spring.main.ApplicationBoot;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.MustacheException;
 import org.springframework.context.ResourceLoaderAware;
@@ -43,11 +44,12 @@ public class MustacheJTemplateFactory extends DefaultMustacheFactory implements
 
     private ResourceLoader resourceLoader;
     private String prefix = "";
+    private String suffix = "";
     private String encoding = firstNonNull(getProperty("mustache.template.encoding"), "UTF-8");
 
 
     public void setSuffix(String suffix) {
-        //
+        this.suffix = suffix;
     }
 
     public void setPrefix(String prefix) {
@@ -55,55 +57,25 @@ public class MustacheJTemplateFactory extends DefaultMustacheFactory implements
     }
 
     public void setResourceLoader(ResourceLoader resourceLoader) {
-        this.resourceLoader = resourceLoader;
+        //
     }
 
-    public MustacheTemplate getTemplate(String templateURL) {
-        return new MustacheJTemplate(this.compile(templateURL));
+    public MustacheTemplate getTemplate(String viewName) {
+        return new MustacheJTemplate(this.compile(viewName));
     }
 
     @Override
     public Reader getReader(String resourceName) {
-        resourceName = getFullyQualifiedResourceName(resourceName);
-        Resource resource = resourceLoader.getResource(resourceName);
-        if (resource.exists()) {
-            try {
-                return new InputStreamReader(resource.getInputStream(), encoding);
-            } catch (IOException e) {
-                throw new MustacheException("Failed to load template: " + resourceName, e);
-            }
-        }
-        throw new MustacheException("No template exists named: " + resourceName);
-    }
+        Resource resource = ApplicationBoot.getApplicationContext().getResource(
+                this.prefix + resourceName + this.suffix);
+        if (resource == null || !resource.exists())
+            throw new MustacheException("No template exists named: " + resourceName);
 
-    /**
-     * This is to handle partials within templates that have been prefixed in
-     * the View Resolver.
-     * <p/>
-     * As the parent may have a prefix, we want partials declared to also use
-     * the same prefix without explicitly specifying that prefix in the parent
-     * template.
-     * <p/>
-     * <pre>
-     * e.g. WEB-INF/views/parent.html
-     * Want this
-     *   <h1> Parent </h1>
-     *   {{> aPartial }}
-     *
-     * Instead of:
-     *   <h1> Parent </h1>
-     *   {{> WEB-INF/views/aPartial.html }}
-     * </pre>
-     *
-     * @param resourceName
-     * @return the resource prefixed if applicable
-     */
-    private String getFullyQualifiedResourceName(String resourceName) {
-        if (resourceName.startsWith(this.prefix)) {
-            return resourceName;
+        try {
+            return new InputStreamReader(resource.getInputStream(), encoding);
+        } catch (IOException e) {
+            throw new MustacheException("Failed to load template: " + resourceName, e);
         }
-        return this.prefix + resourceName;
     }
-
 
 }
