@@ -36,10 +36,10 @@ public class CommentController {
 
     @RequestMapping(path = "/comment/index", method = RequestMethod.GET, produces = "application/json")
     public ModelAndView commentIndex(Model model) {
-        List comments = Arrays.asList(new CommentEntity("author1", "content1"),
+        List<CommentEntity> comments = Arrays.asList(new CommentEntity("author1", "content1"),
                 new CommentEntity("author2", "content2"),
                 new CommentEntity("author3", "content3"));
         model.addAttribute("comments", comments);
-        return new ModelAndView("index");
+        return new ModelAndView("index").addAllObjects(model.asMap());
     }
 }
