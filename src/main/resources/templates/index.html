@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Hello React</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>Hello Mustache</title>
+    <link href="webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/index.css" rel="stylesheet"/>
 </head>
 <body>
-<ul>
-    {{#each comments}}
-    <li>{{author}} {{content}}</li>
-    {{/each comments}}
-</ul>
+    <ul>
+        {{#comments}}
+        <li>{{author}} {{content}}</li>
+        {{/comments}}
+    </ul>
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="webjars/handlebars/4.0.2/handlebars.min.js"></script>
-<script src="webjars/react/0.13.3/react.min.js"></script>
-<script src="webjars/react-bootstrap/0.25.1/react-bootstrap.min.js"></script>
-<script src="webjars/showdown/0.3.1/compressed/showdown.js"></script>
+    <script src="webjars/jquery/1.11.3/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="webjars/react/0.13.3/react.min.js"></script>
+    <script src="webjars/react-router/0.13.2/ReactRouter.min.js"></script>
+    <script src="webjars/react-bootstrap/0.25.1/react-bootstrap.min.js"></script>
+    <script src="webjars/showdown/0.3.1/compressed/showdown.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 </html>
