@@ -24,6 +24,7 @@ public class IndexController {
                 new CommentEntity("author2", "content2"),
                 new CommentEntity("author3", "content3"));
         model.addAttribute("comments", comments);
+        model.addAttribute("title", "Hello Mustache");
 
         return new ModelAndView("index").addAllObjects(model.asMap());
     }

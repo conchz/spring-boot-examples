@@ -188,6 +188,12 @@
             <artifactId>bootstrap</artifactId>
             <version>3.3.5</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jqgrid</artifactId>
+            <version>4.7.0</version>
+        </dependency>
     </dependencies>
 
     <build>

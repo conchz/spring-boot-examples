@@ -22,13 +22,13 @@ public class CommentServiceImpl implements CommentService {
 
 
     @Override
-    public Collection<CommentEntity> findAll() {
-        return commentDAO.findAll();
+    public Collection<CommentEntity> findAll(int pageNo, int pageSize) {
+        return commentDAO.findAll(pageNo, pageSize);
     }
 
     @Override
-    public Collection<CommentEntity> findByParams(Map<String, Object> params) {
-        return commentDAO.findByParams(params);
+    public Collection<CommentEntity> findByParams(Map<String, Object> params, int pageNo, int pageSize) {
+        return commentDAO.findByParams(params, pageNo, pageSize);
     }
 
     @Override

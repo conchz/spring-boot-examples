@@ -12,9 +12,9 @@ import java.util.Map;
  */
 public interface CommentService {
 
-    Collection<CommentEntity> findAll();
+    Collection<CommentEntity> findAll(int pageNo, int pageSize);
 
-    Collection<CommentEntity> findByParams(Map<String, Object> params);
+    Collection<CommentEntity> findByParams(Map<String, Object> params, int pageNo, int pageSize);
 
     CommentEntity findOne(String id);
 
