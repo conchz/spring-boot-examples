@@ -2,6 +2,7 @@ package com.github.dolphineor.spring.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * Created on 2015-09-15.
@@ -10,7 +11,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "TBL_COMMENT")
-public class CommentEntity extends AbstractId {
+public class CommentEntity extends AbstractId implements Serializable {
 
     private String author;
 

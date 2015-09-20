@@ -1,7 +1,13 @@
 package com.github.dolphineor.spring.service.impl;
 
+import com.github.dolphineor.spring.model.dao.UserDAO;
+import com.github.dolphineor.spring.model.entity.UserEntity;
 import com.github.dolphineor.spring.service.UserService;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.Collection;
+import java.util.Map;
 
 /**
  * Created on 2015-09-12.
@@ -10,4 +16,43 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Resource
+    private UserDAO userDAO;
+
+
+    @Override
+    public Collection<UserEntity> findAll(int pageNo, int pageSize) {
+        return userDAO.findAll(pageNo, pageSize);
+    }
+
+    @Override
+    public Collection<UserEntity> findByParams(Map<String, Object> params, int pageNo, int pageSize) {
+        return userDAO.findByParams(params, pageNo, pageSize);
+    }
+
+    @Override
+    public UserEntity findOne(String id) {
+        return userDAO.findOne(id);
+    }
+
+    @Override
+    public void insert(UserEntity userEntity) {
+        userDAO.insert(userEntity);
+    }
+
+    @Override
+    public void insert(Collection<UserEntity> userEntities) {
+        userDAO.insert(userEntities);
+    }
+
+    @Override
+    public void update(UserEntity userEntity) {
+        userDAO.update(userEntity);
+    }
+
+    @Override
+    public void delete(String id) {
+        userDAO.delete(id);
+    }
 }

@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/*.jar --port $PORT
+web: java $JAVA_OPTS -jar target/spring-boot-examples.jar --port $PORT

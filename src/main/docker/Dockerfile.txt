@@ -1,6 +1,6 @@
 FROM dockerfile/java:oracle-java8
 
-ADD spring-examples.jar /opt/spring-examples/
-EXPOSE 8080
-WORKDIR /opt/spring-examples/
-CMD ["java", "-Xms1g", "-Xmx1g", "-jar", "spring-examples.jar"]
+ADD spring-boot-examples.jar /opt/spring-boot-examples/
+EXPOSE 8081
+WORKDIR /opt/spring-boot-examples/
+CMD ["java", "-Xms1g", "-Xmx1g", "-jar", "spring-boot-examples.jar"]

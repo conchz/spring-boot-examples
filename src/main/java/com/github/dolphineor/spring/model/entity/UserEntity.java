@@ -1,8 +1,7 @@
 package com.github.dolphineor.spring.model.entity;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
@@ -12,13 +11,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "TBL_USER")
-public class UserEntity implements Serializable {
-
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    @Column(columnDefinition = "CHAR(32)")
-    private String id;
+public class UserEntity extends AbstractId implements Serializable {
 
     private String username;
 
@@ -26,14 +19,6 @@ public class UserEntity implements Serializable {
 
     private int gender;
 
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;

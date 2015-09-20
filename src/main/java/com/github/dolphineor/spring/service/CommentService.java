@@ -2,27 +2,11 @@ package com.github.dolphineor.spring.service;
 
 import com.github.dolphineor.spring.model.entity.CommentEntity;
 
-import java.util.Collection;
-import java.util.Map;
-
 /**
  * Created on 2015-09-15.
  *
  * @author dolphineor
  */
-public interface CommentService {
+public interface CommentService extends BaseService<CommentEntity> {
 
-    Collection<CommentEntity> findAll(int pageNo, int pageSize);
-
-    Collection<CommentEntity> findByParams(Map<String, Object> params, int pageNo, int pageSize);
-
-    CommentEntity findOne(String id);
-
-    void insert(CommentEntity commentEntity);
-
-    void insert(Collection<CommentEntity> commentEntities);
-
-    void update(CommentEntity commentEntity);
-
-    void delete(String id);
 }
