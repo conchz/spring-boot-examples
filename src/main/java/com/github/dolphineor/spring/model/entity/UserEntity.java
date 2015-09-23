@@ -2,7 +2,6 @@ package com.github.dolphineor.spring.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 /**
  * Created on 2015-09-13.
@@ -11,7 +10,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "TBL_USER")
-public class UserEntity extends AbstractId implements Serializable {
+public class UserEntity extends AbstractId {
 
     private String username;
 
