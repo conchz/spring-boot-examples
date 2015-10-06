@@ -18,7 +18,7 @@
 
     <properties>
         <spring.version>4.2.1.RELEASE</spring.version>
-        <hibernate.version>5.0.1.Final</hibernate.version>
+        <hibernate.version>5.0.2.Final</hibernate.version>
     </properties>
 
     <repositories>
@@ -101,7 +101,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>4.2.0.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
