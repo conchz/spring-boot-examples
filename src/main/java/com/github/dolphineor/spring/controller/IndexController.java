@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 public class IndexController {
 
-    @RequestMapping(value = {"/", "/index", "/index.html"}, method = RequestMethod.GET)
+    @RequestMapping(path = {"/", "/index", "/index.html"}, method = RequestMethod.GET)
     public ModelAndView handleRequest(Model model) {
         List<CommentEntity> comments = Arrays.asList(new CommentEntity("author1", "content1"),
                 new CommentEntity("author2", "content2"),
