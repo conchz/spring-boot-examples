@@ -19,7 +19,7 @@ import java.util.Objects;
 @SuppressWarnings("unchecked")
 public interface RepositoryDB<T, ID extends Serializable> {
 
-    SessionFactory sessionFactory = ApplicationBoot.getApplicationContext().getBean(SessionFactory.class);
+    SessionFactory sessionFactory = ApplicationBoot.getApplicationContext().getBean("sessionFactory", SessionFactory.class);
 
 
     Class<? extends T> clazz();
