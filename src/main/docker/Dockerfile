@@ -7,8 +7,9 @@ MAINTAINER Zongzhi Bai "dolphineor@gmail.com"
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe"> /etc/apt/sources.list
 RUN apt-get update
 
-# Install curl
+# Install curl & vim
 RUN apt-get -y install curl
+RUN apt-get -y install vim
 
 # Install Oracle-JDK8
 RUN cd /tmp && curl -L 'http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz' -H 'Cookie: oraclelicense=accept-securebackup-cookie; gpw_e24=Dockerfile' | tar -xz
