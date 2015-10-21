@@ -39,13 +39,13 @@ RUNNING=$(docker inspect --format="{{ .State.Running }}" ${CONTAINER} 2> /dev/nu
 
 # If specific container not exists, run a new container
 if [ $? -eq 1 ];  then
-    docker run --name spring-boot-web -d -p 8088:8081 -v ${HOME}/${DOCKER_DIR}/${SPRING_BOOT_EXAMPLES_DIR}:/opt/spring-boot-examples spring-boot-examples /bin/bash
+    docker run --name ${CONTAINER} -d -p 8088:8081 -v ${HOME}/${DOCKER_DIR}/${SPRING_BOOT_EXAMPLES_DIR}:/opt/spring-boot-examples spring-boot-examples /bin/bash
 fi
 
 # Check container running status
 if [ "$RUNNING" = "false" ];  then
-    docker start spring-boot-web
+    docker start ${CONTAINER}
 else if [ "$RUNNING" = "true" ];  then
-    docker restart spring-boot-web
+    docker restart ${CONTAINER}
     fi
 fi
