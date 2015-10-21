@@ -17,7 +17,7 @@
     </parent>
 
     <description>
-        Spring boot examples based on mustachejava and docker.
+        Spring boot examples based on mustache.java and docker.
     </description>
 
     <url>https://github.com/dolphineor/spring-boot-examples.git</url>
