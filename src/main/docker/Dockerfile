@@ -1,7 +1,7 @@
 # Pull base image
 FROM ubuntu:14.04
 
-MAINTAINER Zongzhi Bai "dolphineor@gmail.com"
+MAINTAINER Zongzhi Bai <dolphineor@gmail.com>
 
 # Update source
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe"> /etc/apt/sources.list
