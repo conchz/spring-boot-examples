@@ -43,4 +43,4 @@ EXPOSE 8081
 
 WORKDIR /opt/spring-boot-examples/
 
-CMD ["java", "-server", "-Xms1g", "-Xmx1g", "-jar", "spring-boot-examples.jar"]
+CMD ["java", "-server", "-Dfile.encoding=UTF-8", "-Xms1g", "-Xmx1g", "-jar", "spring-boot-examples.jar"]
