@@ -3,9 +3,9 @@ package com.github.dolphineor.springboot.service.impl;
 import com.github.dolphineor.springboot.model.dao.CommentDAO;
 import com.github.dolphineor.springboot.model.entity.CommentEntity;
 import com.github.dolphineor.springboot.service.CommentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.Map;
 
@@ -17,7 +17,7 @@ import java.util.Map;
 @Service
 public class CommentServiceImpl implements CommentService {
 
-    @Resource
+    @Autowired
     private CommentDAO commentDAO;
 
 

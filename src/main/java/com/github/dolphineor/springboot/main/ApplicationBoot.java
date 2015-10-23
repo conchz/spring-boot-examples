@@ -7,21 +7,26 @@ import com.github.dolphineor.springboot.extension.view.mustachejava.MustacheView
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import java.util.Objects;
 
 /**
  * Created on 2015-09-12.
  *
  * @author dolphineor
  */
+@ComponentScan("com.github.dolphineor.springboot.*")
+@EnableTransactionManagement
 @SpringBootApplication
-@ImportResource("application-context.xml")
 public class ApplicationBoot extends WebMvcConfigurerAdapter {
 
     private static ApplicationContext ctx;
+
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -42,6 +47,10 @@ public class ApplicationBoot extends WebMvcConfigurerAdapter {
     }
 
     public static ApplicationContext getApplicationContext() {
+        if (Objects.isNull(ctx)) {
+            throw new NullPointerException();
+        }
+
         return ctx;
     }
 

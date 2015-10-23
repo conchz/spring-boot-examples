@@ -1,6 +1,8 @@
 package com.github.dolphineor.springboot.model.dao.impl;
 
+import com.github.dolphineor.springboot.model.dao.AbstractRepositoryDB;
 import com.github.dolphineor.springboot.model.dao.CommentDAO;
+import com.github.dolphineor.springboot.model.entity.CommentEntity;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -8,8 +10,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author dolphineor
  */
-@SuppressWarnings("unchecked")
 @Repository
-public class CommentDAOImpl implements CommentDAO {
+public class CommentDAOImpl extends AbstractRepositoryDB<CommentEntity, String> implements CommentDAO {
 
 }

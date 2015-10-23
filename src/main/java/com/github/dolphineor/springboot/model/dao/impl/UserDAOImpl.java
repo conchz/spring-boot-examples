@@ -1,6 +1,8 @@
 package com.github.dolphineor.springboot.model.dao.impl;
 
+import com.github.dolphineor.springboot.model.dao.AbstractRepositoryDB;
 import com.github.dolphineor.springboot.model.dao.UserDAO;
+import com.github.dolphineor.springboot.model.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,6 +11,6 @@ import org.springframework.stereotype.Repository;
  * @author dolphineor
  */
 @Repository
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl extends AbstractRepositoryDB<UserEntity, String> implements UserDAO {
 
 }

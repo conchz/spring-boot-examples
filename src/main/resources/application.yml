@@ -1,0 +1,45 @@
+## See http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+spring:
+    application:
+        name: spring-boot-exampls
+        index: /
+    http:
+        encoding:
+            charset: UTF-8
+            enabled: true
+            force: true
+    jpa:
+        properties:
+            hibernate:
+                archive.autodetection: class
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+                max_fetch_depth: 3
+                cache.use_second_level_cache: true
+                cache.use_query_cache: true
+                cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+            naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+
+server:
+    port: 8081
+
+
+hikari:
+  poolName: HikariCP
+  minimumIdle: 5
+  maximumPoolSize: 25
+  connectionTimeout: 30000
+  idleTimeout: 30000
+  connectionTestQuery: SELECT 1
+  dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+  dataSource:
+    url: jdbc:mysql://192.168.1.180:3306/test?characterEncoding=UTF-8
+    user: root
+    password: root_1wdv
+    ## Only for mysql
+    cachePrepStmts: true
+    prepStmtCacheSize: 300
+    prepStmtCacheSqlLimit: 2048
