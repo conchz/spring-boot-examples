@@ -28,18 +28,18 @@ server:
 
 
 hikari:
-  poolName: HikariCP
-  minimumIdle: 5
-  maximumPoolSize: 25
-  connectionTimeout: 30000
-  idleTimeout: 30000
-  connectionTestQuery: SELECT 1
-  dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-  dataSource:
-    url: jdbc:mysql://192.168.1.180:3306/test?characterEncoding=UTF-8
-    user: root
-    password: root_1wdv
-    ## Only for mysql
-    cachePrepStmts: true
-    prepStmtCacheSize: 300
-    prepStmtCacheSqlLimit: 2048
+    poolName: HikariCP
+    minimumIdle: 5
+    maximumPoolSize: 25
+    connectionTimeout: 30000
+    idleTimeout: 30000
+    connectionTestQuery: SELECT 1
+    dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+    dataSource:
+        url: jdbc:mysql://192.168.1.180:3306/test?characterEncoding=UTF-8
+        user: root
+        password: root_1wdv
+        ## Only for mysql
+        cachePrepStmts: true
+        prepStmtCacheSize: 300
+        prepStmtCacheSqlLimit: 2048
