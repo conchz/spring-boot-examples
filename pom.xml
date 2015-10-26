@@ -165,30 +165,6 @@
             <artifactId>react-bootstrap</artifactId>
             <version>0.25.1</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>showdown</artifactId>
-            <version>0.3.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-            <version>1.11.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>3.3.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jqgrid</artifactId>
-            <version>4.7.0</version>
-        </dependency>
     </dependencies>
 
     <build>
