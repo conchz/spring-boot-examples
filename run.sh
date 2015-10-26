@@ -27,8 +27,9 @@ cd ${TMP_TARGET_DIR} && cp spring-boot-examples.jar ${HOME}/${DOCKER_DIR}/${SPRI
 
 
 # If specific image not exist, build a new image
-if [ -z "$(docker images -q spring-boot-examples 2> /dev/null)" ];  then
-    docker build -t spring-boot-examples .
+IMAGE=spring-boot-examples
+if [ -z "$(docker images -q ${IMAGE} 2> /dev/null)" ];  then
+    docker build -t ${IMAGE} .
 fi
 
 
@@ -39,7 +40,7 @@ RUNNING=$(docker inspect --format="{{ .State.Running }}" ${CONTAINER} 2> /dev/nu
 
 # If specific container not exist, run a new container
 if [ $? -eq 1 ];  then
-    docker run --name ${CONTAINER} -d -p 8088:8081 -v ${HOME}/${DOCKER_DIR}/${SPRING_BOOT_EXAMPLES_DIR}:/opt/spring-boot-examples spring-boot-examples
+    docker run --name ${CONTAINER} -d -p 8088:8081 -v ${HOME}/${DOCKER_DIR}/${SPRING_BOOT_EXAMPLES_DIR}:/opt/spring-boot-examples ${IMAGE}
 fi
 
 # Check container running status
