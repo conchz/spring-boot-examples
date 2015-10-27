@@ -12,9 +12,9 @@ RUN apt-get -y install curl
 RUN apt-get -y install vim
 
 # Install Oracle-JDK8
-RUN cd /tmp && curl -L 'http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz' -H 'Cookie: oraclelicense=accept-securebackup-cookie; gpw_e24=Dockerfile' | tar -xz
+RUN cd /tmp && curl -L 'http://download.oracle.com/otn-pub/java/jdk/8u65-b17/jdk-8u65-linux-x64.tar.gz' -H 'Cookie: oraclelicense=accept-securebackup-cookie; gpw_e24=Dockerfile' | tar -xz
 RUN mkdir -p /usr/lib/jvm
-RUN mv /tmp/jdk1.8.0_60/ /usr/lib/jvm/oracle-java-8/
+RUN mv /tmp/jdk1.8.0_65/ /usr/lib/jvm/oracle-java-8/
 
 # Set Oracle JDK 8 as default Java
 RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/oracle-java-8/bin/java 300
