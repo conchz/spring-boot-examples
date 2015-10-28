@@ -22,6 +22,15 @@ public class JpaConfig {
     @Value("${hikari.poolName}")
     private String poolName;
 
+    @Value("${hikari.jdbcUrl}")
+    private String jdbcUrl;
+
+    @Value("${hikari.username}")
+    private String username;
+
+    @Value("${hikari.password}")
+    private String password;
+
     @Value("${hikari.minimumIdle}")
     private int minimumIdle;
 
@@ -37,18 +46,6 @@ public class JpaConfig {
     @Value("${hikari.connectionTestQuery}")
     private String connectionTestQuery;
 
-    @Value("${hikari.dataSourceClassName}")
-    private String dataSourceClassName;
-
-    @Value("${hikari.dataSourceProperties.url}")
-    private String url;
-
-    @Value("${hikari.dataSourceProperties.user}")
-    private String user;
-
-    @Value("${hikari.dataSourceProperties.password}")
-    private String password;
-
     @Value("${hikari.dataSourceProperties.cachePrepStmts}")
     private boolean cachePrepStmts;
 
@@ -63,16 +60,16 @@ public class JpaConfig {
     public DataSource dataSource() {
         HikariConfig configuration = new HikariConfig();
         configuration.setPoolName(poolName);
+        configuration.setJdbcUrl(jdbcUrl);
+        configuration.setUsername(username);
+        configuration.setPassword(password);
         configuration.setMinimumIdle(minimumIdle);
         configuration.setMaximumPoolSize(maximumPoolSize);
         configuration.setConnectionTimeout(connectionTimeout);
         configuration.setIdleTimeout(idleTimeout);
         configuration.setConnectionTestQuery(connectionTestQuery);
-        configuration.setDataSourceClassName(dataSourceClassName);
 
-        configuration.addDataSourceProperty("url", url);
-        configuration.addDataSourceProperty("user", user);
-        configuration.addDataSourceProperty("password", password);
+        // Only for MySQL
         configuration.addDataSourceProperty("cachePrepStmts", cachePrepStmts);
         configuration.addDataSourceProperty("prepStmtCacheSize", prepStmtCacheSize);
         configuration.addDataSourceProperty("prepStmtCacheSqlLimit", prepStmtCacheSqlLimit);

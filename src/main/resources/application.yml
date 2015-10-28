@@ -29,16 +29,15 @@ server:
 
 hikari:
     poolName: HikariCP
+    jdbcUrl: jdbc:mysql://127.0.0.1:13206/reactive?characterEncoding=UTF-8
+    username: test
+    password: test1234
     minimumIdle: 5
     maximumPoolSize: 25
     connectionTimeout: 30000
     idleTimeout: 30000
     connectionTestQuery: SELECT 1
-    dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
     dataSourceProperties:
-        url: jdbc:mysql://127.0.0.1:13206/reactive?characterEncoding=UTF-8
-        user: test
-        password: test1234
         ## Only for mysql
         cachePrepStmts: true
         prepStmtCacheSize: 300
