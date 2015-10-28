@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 
 import javax.sql.DataSource;
-import java.util.Properties;
 
 /**
  * Created on 2015-10-23.
@@ -41,46 +40,44 @@ public class JpaConfig {
     @Value("${hikari.dataSourceClassName}")
     private String dataSourceClassName;
 
-    @Value("${hikari.dataSource.url}")
+    @Value("${hikari.dataSourceProperties.url}")
     private String url;
 
-    @Value("${hikari.dataSource.user}")
+    @Value("${hikari.dataSourceProperties.user}")
     private String user;
 
-    @Value("${hikari.dataSource.password}")
+    @Value("${hikari.dataSourceProperties.password}")
     private String password;
 
-    @Value("${hikari.dataSource.cachePrepStmts}")
+    @Value("${hikari.dataSourceProperties.cachePrepStmts}")
     private boolean cachePrepStmts;
 
-    @Value("${hikari.dataSource.prepStmtCacheSize}")
+    @Value("${hikari.dataSourceProperties.prepStmtCacheSize}")
     private int prepStmtCacheSize;
 
-    @Value("${hikari.dataSource.prepStmtCacheSqlLimit}")
+    @Value("${hikari.dataSourceProperties.prepStmtCacheSqlLimit}")
     private int prepStmtCacheSqlLimit;
 
 
     @Bean
     public DataSource dataSource() {
-        HikariConfig hikariConfig = new HikariConfig();
-        hikariConfig.setPoolName(poolName);
-        hikariConfig.setMinimumIdle(minimumIdle);
-        hikariConfig.setMaximumPoolSize(maximumPoolSize);
-        hikariConfig.setConnectionTimeout(connectionTimeout);
-        hikariConfig.setIdleTimeout(idleTimeout);
-        hikariConfig.setConnectionTestQuery(connectionTestQuery);
-        hikariConfig.setDataSourceClassName(dataSourceClassName);
+        HikariConfig configuration = new HikariConfig();
+        configuration.setPoolName(poolName);
+        configuration.setMinimumIdle(minimumIdle);
+        configuration.setMaximumPoolSize(maximumPoolSize);
+        configuration.setConnectionTimeout(connectionTimeout);
+        configuration.setIdleTimeout(idleTimeout);
+        configuration.setConnectionTestQuery(connectionTestQuery);
+        configuration.setDataSourceClassName(dataSourceClassName);
 
-        Properties props = new Properties();
-        props.put("url", url);
-        props.put("user", user);
-        props.put("password", password);
-        props.put("cachePrepStmts", cachePrepStmts);
-        props.put("prepStmtCacheSize", prepStmtCacheSize);
-        props.put("prepStmtCacheSqlLimit", prepStmtCacheSqlLimit);
-        hikariConfig.setDataSourceProperties(props);
+        configuration.addDataSourceProperty("url", url);
+        configuration.addDataSourceProperty("user", user);
+        configuration.addDataSourceProperty("password", password);
+        configuration.addDataSourceProperty("cachePrepStmts", cachePrepStmts);
+        configuration.addDataSourceProperty("prepStmtCacheSize", prepStmtCacheSize);
+        configuration.addDataSourceProperty("prepStmtCacheSqlLimit", prepStmtCacheSqlLimit);
 
-        return new HikariDataSource(hikariConfig);
+        return new HikariDataSource(configuration);
     }
 
     @Bean

@@ -13,7 +13,7 @@ spring:
         properties:
             hibernate:
                 archive.autodetection: class
-                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+                dialect: org.hibernate.dialect.MySQL57InnoDBDialect
                 max_fetch_depth: 3
                 cache.use_second_level_cache: true
                 cache.use_query_cache: true
@@ -35,10 +35,10 @@ hikari:
     idleTimeout: 30000
     connectionTestQuery: SELECT 1
     dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-    dataSource:
-        url: jdbc:mysql://192.168.1.180:3306/test?characterEncoding=UTF-8
-        user: root
-        password: root_1wdv
+    dataSourceProperties:
+        url: jdbc:mysql://127.0.0.1:13206/reactive?characterEncoding=UTF-8
+        user: test
+        password: test1234
         ## Only for mysql
         cachePrepStmts: true
         prepStmtCacheSize: 300
