@@ -37,6 +37,7 @@ hikari:
     connectionTimeout: 30000
     idleTimeout: 30000
     connectionTestQuery: SELECT 1
+#    dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
     dataSourceProperties:
         ## Only for mysql
         cachePrepStmts: true
