@@ -11,4 +11,4 @@ At the same time, some extra technologies are used, as following:
 
 > **Note:**
 
-> - In order to run project successfully, you need to change database's connection as your own in hibernate.properties, including **jdbcUrl**, **username**, **password**.
+> - In order to run project successfully, you need to change database's connection as your own in application.yml, including **jdbcUrl**, **username**, **password**.
