@@ -2,7 +2,7 @@
 
 spring:
     application:
-        name: spring-boot-exampls
+        name: spring-boot-examples
         index: /
     http:
         encoding:

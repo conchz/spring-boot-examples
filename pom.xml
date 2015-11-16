@@ -45,9 +45,9 @@
     </licenses>
 
     <properties>
-        <spring.version>4.2.2.RELEASE</spring.version>
+        <spring.version>4.2.3.RELEASE</spring.version>
         <hibernate.version>5.0.3.Final</hibernate.version>
-        <hikaricp.version>2.4.1</hikaricp.version>
+        <hikaricp.version>2.4.2</hikaricp.version>
         <mysql.version>5.1.37</mysql.version>
         <logback.version>1.1.3</logback.version>
     </properties>
@@ -145,26 +145,6 @@
             <artifactId>guava</artifactId>
             <version>18.0</version>
         </dependency>
-
-
-        <!-- webjars -->
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>react</artifactId>
-            <version>0.14.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>react-router</artifactId>
-            <version>0.13.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>react-bootstrap</artifactId>
-            <version>0.25.1</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -250,7 +230,7 @@
                         <configuration>
                             <target>
                                 <zip destfile="${basedir}/target/spring-boot-app.zip" basedir="${basedir}/target"
-                                     includes="Dockerfile, Dockerrun.aws.json, ${project.artifactId}.jar"/>
+                                     includes="Dockerfile, ${project.artifactId}.jar"/>
                             </target>
                         </configuration>
                     </execution>

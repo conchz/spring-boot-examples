@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Project root directory
 BASE_DIR="$(pwd)"
