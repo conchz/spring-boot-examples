@@ -1,5 +1,5 @@
 # Pull base image
-FROM daocloud.io/java:8u66-jre
+FROM java:8u66-jre
 
 MAINTAINER "Zongzhi Bai" <dolphineor@gmail.com>
 
