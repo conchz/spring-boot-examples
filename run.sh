@@ -40,7 +40,7 @@ RUNNING=$(docker inspect --format="{{ .State.Running }}" ${CONTAINER} 2> /dev/nu
 
 # If specific container not exist, run a new container
 if [ $? -eq 1 ];  then
-    docker run --name ${CONTAINER} -d -p 8088:8081 -v ${HOME}/${DOCKER_DIR}/${SPRING_BOOT_EXAMPLES_DIR}:/opt/spring-boot-examples ${IMAGE}
+    docker run --name=${CONTAINER} --net=host -d -v ${HOME}/${DOCKER_DIR}/${SPRING_BOOT_EXAMPLES_DIR}:/opt/spring-boot-examples ${IMAGE}
 fi
 
 # Check container running status
