@@ -44,9 +44,9 @@ if [ $? -eq 1 ];  then
 fi
 
 # Check container running status
-if [ "$running" = "false" ];  then
+if [ "${running}" = "false" ];  then
     docker start ${container}
-else if [ "$running" = "true" ];  then
+else if [ "${running}" = "true" ];  then
     docker restart ${container}
     fi
 fi
