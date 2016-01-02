@@ -23,7 +23,7 @@ import java.util.Objects;
 @ComponentScan("com.github.dolphineor.springboot.*")
 @EnableTransactionManagement
 @SpringBootApplication
-public class ApplicationBoot extends WebMvcConfigurerAdapter {
+public class SpringAppBoot extends WebMvcConfigurerAdapter {
 
     private static ApplicationContext ctx;
 
@@ -55,6 +55,6 @@ public class ApplicationBoot extends WebMvcConfigurerAdapter {
     }
 
     public static void main(String[] args) {
-        ctx = SpringApplication.run(ApplicationBoot.class, args);
+        ctx = SpringApplication.run(SpringAppBoot.class, args);
     }
 }

@@ -15,7 +15,7 @@
  */
 package com.github.dolphineor.springboot.extension.view.mustachejava;
 
-import com.github.dolphineor.springboot.main.ApplicationBoot;
+import com.github.dolphineor.springboot.main.SpringAppBoot;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.MustacheException;
 import org.springframework.core.io.Resource;
@@ -58,7 +58,7 @@ public class MustacheJTemplateFactory extends DefaultMustacheFactory implements 
 
     @Override
     public Reader getReader(String resourceName) {
-        Resource resource = ApplicationBoot.getApplicationContext()
+        Resource resource = SpringAppBoot.getApplicationContext()
                 .getResource(this.prefix + resourceName + this.suffix);
         if (resource == null || !resource.exists()) {
             throw new MustacheException("No template exists named: " + resourceName);

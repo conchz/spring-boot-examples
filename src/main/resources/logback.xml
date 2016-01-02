@@ -9,7 +9,7 @@
     </appender>
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <encoder>UTF-8</encoder>
-        <file>./log/spring-boot-examples.log</file>
+        <file>./log/out.log</file>
         <append>true</append>
         <encoder>
             <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n%ex{20}</pattern>
