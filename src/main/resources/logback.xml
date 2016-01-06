@@ -4,20 +4,22 @@
 <configuration scan="true" scanPeriod="60 seconds">
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
             <pattern>%d [%thread] %-5level %logger{36} - %msg%n%ex{20}</pattern>
         </encoder>
     </appender>
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <encoder>UTF-8</encoder>
         <file>./log/out.log</file>
         <append>true</append>
         <encoder>
+            <charset>UTF-8</charset>
             <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n%ex{20}</pattern>
         </encoder>
     </appender>
 
+    <!-- 设置具体某个类的日志级别 -->
     <!--<logger name="className" level="info"/>-->
-    <!-- 日志级别 -->
+
     <root>
         <!-- 定义INFO级别的日志, 分别在FILE文件和控制台输出 -->
         <level value="info"/>
