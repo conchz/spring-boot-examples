@@ -13,7 +13,8 @@ spring:
         properties:
             hibernate:
                 archive.autodetection: class
-                dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+#                dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+                dialect: com.github.dolphineor.springboot.model.dialect.CustomMySQLDialect
                 max_fetch_depth: 3
                 cache.use_second_level_cache: true
                 cache.use_query_cache: true

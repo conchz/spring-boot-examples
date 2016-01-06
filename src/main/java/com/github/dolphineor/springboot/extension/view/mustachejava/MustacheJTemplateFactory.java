@@ -23,12 +23,13 @@ import org.springframework.core.io.Resource;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Objects;
 
 import static com.google.common.base.MoreObjects.firstNonNull;
 
 /**
  * Uses the spring resource loader to find template files.
- * <p/>
+ * <p>
  * The prefix is set from the view resolver to handle partials as the path to
  * the parent will be fully qualified, but partials within the parent will not
  * be.
@@ -60,7 +61,7 @@ public class MustacheJTemplateFactory extends DefaultMustacheFactory implements 
     public Reader getReader(String resourceName) {
         Resource resource = SpringAppBoot.getApplicationContext()
                 .getResource(this.prefix + resourceName + this.suffix);
-        if (resource == null || !resource.exists()) {
+        if (Objects.isNull(resource) || !resource.exists()) {
             throw new MustacheException("No template exists named: " + resourceName);
         }
 

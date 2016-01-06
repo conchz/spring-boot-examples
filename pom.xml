@@ -51,6 +51,20 @@
         <mysql.version>5.1.38</mysql.version>
     </properties>
 
+    <!--<profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <mysql.jdbcUrl>jdbc:mysql://127.0.0.1:13206/reactive?characterEncoding=UTF-8</mysql.jdbcUrl>
+                <mysql.userName>test</mysql.userName>
+                <mysql.password>test1234</mysql.password>
+            </properties>
+        </profile>
+    </profiles>-->
+
     <repositories>
         <repository>
             <id>central-repo</id>

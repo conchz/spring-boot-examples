@@ -28,6 +28,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -71,7 +72,7 @@ public abstract class MustacheLocalizationMessageInterceptor extends HandlerInte
                            final Object handler,
                            final ModelAndView modelAndView) throws Exception {
 
-        if (modelAndView != null) {
+        if (Objects.nonNull(modelAndView)) {
             modelAndView.addObject(messageKey, createHelper(request));
         }
 
@@ -104,10 +105,11 @@ public abstract class MustacheLocalizationMessageInterceptor extends HandlerInte
      */
     private List<String> extractParameters(String key) {
         final Matcher matcher = ARGS_PATTERN.matcher(key);
-        final List<String> args = new ArrayList<String>();
+        final List<String> args = new ArrayList<>();
         while (matcher.find()) {
             args.add(matcher.group(1));
         }
+
         return args;
     }
 

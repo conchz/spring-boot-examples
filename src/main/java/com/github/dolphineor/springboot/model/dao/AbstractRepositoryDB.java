@@ -3,6 +3,7 @@ package com.github.dolphineor.springboot.model.dao;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -51,24 +52,54 @@ public abstract class AbstractRepositoryDB<T, ID extends Serializable> implement
 
     @Override
     public void insert(T t) {
-        sessionFactory.openSession().persist(t);
+        Transaction tx = null;
+        try (Session session = sessionFactory.openSession()) {
+            tx = session.beginTransaction();
+            session.persist(t);
+            session.flush();
+            tx.commit();
+        } catch (final Exception ignored) {
+
+        }
     }
 
     @Override
     public void insert(Collection<T> ts) {
-        Session session = sessionFactory.openSession();
-        ts.forEach(session::persist);
+        ts.forEach(this::insert);
     }
 
     @Override
     public void update(T t) {
-        sessionFactory.openSession().update(t);
+        Transaction tx = null;
+        try (Session session = sessionFactory.openSession()) {
+            tx = session.beginTransaction();
+            session.update(t);
+            session.flush();
+            tx.commit();
+        } catch (final Exception e) {
+            e.printStackTrace();
+            if (Objects.nonNull(tx)) {
+                tx.rollback();
+            }
+        }
     }
 
     @Override
     public void delete(ID id) {
         T t = findOne(id);
-        if (Objects.nonNull(t))
-            sessionFactory.openSession().delete(t);
+        if (Objects.nonNull(t)) {
+            Transaction tx = null;
+            try (Session session = sessionFactory.openSession()) {
+                tx = session.beginTransaction();
+                session.delete(t);
+                session.flush();
+                tx.commit();
+            } catch (final Exception e) {
+                e.printStackTrace();
+                if (Objects.nonNull(tx)) {
+                    tx.rollback();
+                }
+            }
+        }
     }
 }
