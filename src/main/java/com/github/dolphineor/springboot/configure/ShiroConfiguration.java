@@ -9,9 +9,11 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * Created on 2016-01-07.
@@ -31,9 +33,10 @@ public class ShiroConfiguration {
 
     @Bean(name = "shiroEhcacheManager")
     public EhCacheManager getEhCacheManager() {
-        EhCacheManager em = new EhCacheManager();
-        em.setCacheManagerConfigFile("classpath:ehcache-shiro.xml");
-        return em;
+        EhCacheManager ehCacheManager = new EhCacheManager();
+        ehCacheManager.setCacheManagerConfigFile("classpath:ehcache-shiro.xml");
+
+        return ehCacheManager;
     }
 
     @Bean(name = "lifecycleBeanPostProcessor")
@@ -45,6 +48,7 @@ public class ShiroConfiguration {
     public DefaultAdvisorAutoProxyCreator getDefaultAdvisorAutoProxyCreator() {
         DefaultAdvisorAutoProxyCreator daap = new DefaultAdvisorAutoProxyCreator();
         daap.setProxyTargetClass(true);
+
         return daap;
     }
 
@@ -53,6 +57,7 @@ public class ShiroConfiguration {
         DefaultWebSecurityManager dwsm = new DefaultWebSecurityManager();
         dwsm.setRealm(getShiroRealm());
         dwsm.setCacheManager(getEhCacheManager());
+
         return dwsm;
     }
 
@@ -60,20 +65,37 @@ public class ShiroConfiguration {
     public AuthorizationAttributeSourceAdvisor getAuthorizationAttributeSourceAdvisor() {
         AuthorizationAttributeSourceAdvisor aasa = new AuthorizationAttributeSourceAdvisor();
         aasa.setSecurityManager(getDefaultWebSecurityManager());
+
         return new AuthorizationAttributeSourceAdvisor();
     }
 
     @Bean(name = "shiroFilter")
     public ShiroFilterFactoryBean getShiroFilterFactoryBean() {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
-        shiroFilterFactoryBean
-                .setSecurityManager(getDefaultWebSecurityManager());
+        shiroFilterFactoryBean.setSecurityManager(getDefaultWebSecurityManager());
         shiroFilterFactoryBean.setLoginUrl("/login");
         shiroFilterFactoryBean.setSuccessUrl("/sa/index");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/login");
+
         filterChainDefinitionMap.put("/sa/**", "authc");
-        filterChainDefinitionMap.put("/**", "anon");
-        shiroFilterFactoryBean
-                .setFilterChainDefinitionMap(filterChainDefinitionMap);
+        filterChainDefinitionMap.put("/js/*", "anon");
+        filterChainDefinitionMap.put("/css/*", "anon");
+        filterChainDefinitionMap.put("/img/*", "anon");
+        filterChainDefinitionMap.put("/images/*", "anon");
+        filterChainDefinitionMap.put("/logout", "anon");
+
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+
         return shiroFilterFactoryBean;
+    }
+
+    @Bean
+    public SimpleMappingExceptionResolver simpleMappingExceptionResolver() {
+        SimpleMappingExceptionResolver mappingExceptionResolver = new SimpleMappingExceptionResolver();
+        Properties mappings = new Properties();
+        mappings.put("org.apache.shiro.authz.AuthorizationException", "redirect:/login");
+        mappingExceptionResolver.setExceptionMappings(mappings);
+
+        return mappingExceptionResolver;
     }
 }
