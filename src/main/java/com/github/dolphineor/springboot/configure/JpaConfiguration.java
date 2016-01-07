@@ -17,7 +17,7 @@ import javax.sql.DataSource;
  * @author dolphineor
  */
 @Configuration
-public class JpaConfig {
+public class JpaConfiguration {
 
     @Value("${hikari.poolName}")
     private String poolName;
