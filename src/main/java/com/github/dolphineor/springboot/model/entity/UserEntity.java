@@ -1,6 +1,10 @@
 package com.github.dolphineor.springboot.model.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 
 /**
@@ -9,16 +13,14 @@ import java.util.Date;
  * @author dolphineor
  */
 @Entity
-@NamedEntityGraph(name = "reactive.TBL_USER")
+@Table(name = "reactive.TBL_USER")
 public class UserEntity extends AbstractId {
 
     @Column(columnDefinition = "VARCHAR(16)", unique = true, nullable = false)
-    private String userName;
+    private String username;
 
     @Column(columnDefinition = "VARCHAR(16)", nullable = false)
     private String password;
-
-    private int age;
 
     private int gender;
 
@@ -27,15 +29,16 @@ public class UserEntity extends AbstractId {
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date birthday;
 
+    @Column(columnDefinition = "VARCHAR(32)", unique = true, nullable = false)
     private String email;
 
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -44,14 +47,6 @@ public class UserEntity extends AbstractId {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public int getGender() {
