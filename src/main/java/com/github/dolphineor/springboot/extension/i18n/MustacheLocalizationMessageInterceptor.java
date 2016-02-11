@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
 /**
  * Spring Interceptor to add a model attribute, so a Mustache template can access the Spring
  * MessageSource for localized messages.
- * <p/>
+ * <p>
  * e.g. {{#i18n}}labels.global.mustache [arg1]...[argN]{{/i18n}}
  */
 public abstract class MustacheLocalizationMessageInterceptor extends HandlerInterceptorAdapter implements
@@ -43,7 +43,7 @@ public abstract class MustacheLocalizationMessageInterceptor extends HandlerInte
 
     /**
      * Default key to be used in message templates.
-     * <p/>
+     * <p>
      * e.g. {{i18n}}internationalize.this.key.please{{/i18n}}
      */
     public static final String DEFAULT_MODEL_KEY = "i18n";
@@ -97,7 +97,7 @@ public abstract class MustacheLocalizationMessageInterceptor extends HandlerInte
 
     /**
      * Split args from input string.
-     * <p/>
+     * <p>
      * localization_key [param1] [param2] [param3]
      *
      * @param key
@@ -118,9 +118,9 @@ public abstract class MustacheLocalizationMessageInterceptor extends HandlerInte
      *
      * @param messageKey the key used in the template. For example if the messageKey is 'label' then in the
      *                   template you would use:
-     *                   <p/>
+     *                   <p>
      *                   {{#label}}labels.global.mustache{{/label}}
-     *                   <p/>
+     *                   <p>
      *                   The default messageKey is 'i18n'
      */
     public void setMessageKey(String messageKey) {
