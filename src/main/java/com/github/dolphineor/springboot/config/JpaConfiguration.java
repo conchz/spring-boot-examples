@@ -1,4 +1,4 @@
-package com.github.dolphineor.springboot.configure;
+package com.github.dolphineor.springboot.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

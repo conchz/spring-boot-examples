@@ -23,5 +23,4 @@ public class IndexController {
         return new ModelAndView("index").addAllObjects(model.asMap());
     }
 
-
 }
