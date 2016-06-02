@@ -1,4 +1,4 @@
-# Spring Boot Examples [![Build Status](https://travis-ci.org/dolphineor/spring-boot-examples.svg?branch=master)](https://travis-ci.org/dolphineor/spring-boot-examples)
+# Spring Boot Examples [![Build Status](https://travis-ci.org/lavenderx/spring-boot-examples.svg?branch=master)](https://travis-ci.org/lavenderx/spring-boot-examples)
 
 Spring-boot-examples use [Spring Boot](http://projects.spring.io/spring-boot/) to build web project.
 

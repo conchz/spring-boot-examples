@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.dolphineor</groupId>
+    <groupId>com.github.lavenderx</groupId>
     <artifactId>spring-boot-examples</artifactId>
     <version>0.5.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -13,27 +13,25 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.3.RELEASE</version>
+        <version>1.3.5.RELEASE</version>
     </parent>
 
-    <description>
-        Spring boot examples based on mustache.java and docker.
-    </description>
+    <description>Spring boot examples.</description>
 
-    <url>https://github.com/dolphineor/spring-boot-examples.git</url>
+    <url>https://github.com/lavenderx/spring-boot-examples.git</url>
 
     <developers>
         <developer>
-            <id>dolphineor</id>
+            <id>lavenderx</id>
             <name>Zongzhi Bai</name>
             <email>dolphineor@gmail.com</email>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:dolphineor/spring-boot-examples.git</connection>
-        <developerConnection>scm:git:git@github.com:dolphineor/spring-boot-examples.git</developerConnection>
-        <url>git@github.com:dolphineor/spring-boot-examples.git</url>
+        <connection>scm:git:git@github.com:lavenderx/spring-boot-examples.git</connection>
+        <developerConnection>scm:git:git@github.com:lavenderx/spring-boot-examples.git</developerConnection>
+        <url>git@github.com:lavenderx/spring-boot-examples.git</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -45,9 +43,9 @@
     </licenses>
 
     <properties>
-        <spring.version>4.2.4.RELEASE</spring.version>
+        <spring.version>4.2.6.RELEASE</spring.version>
         <hibernate.version>5.1.0.Final</hibernate.version>
-        <hikaricp.version>2.4.3</hikaricp.version>
+        <hikaricp.version>2.4.6</hikaricp.version>
         <mysql.version>5.1.38</mysql.version>
     </properties>
 
@@ -103,11 +101,9 @@
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
 
-        <!-- mustache.java -->
         <dependency>
-            <groupId>com.github.spullara.mustache.java</groupId>
-            <artifactId>compiler</artifactId>
-            <version>0.9.1</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mustache</artifactId>
         </dependency>
 
         <!-- Hibernate -->
@@ -142,6 +138,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
+            <version>1.1.7</version>
         </dependency>
 
         <dependency>
